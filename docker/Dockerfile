@@ -30,5 +30,5 @@ RUN echo "$COMMIT" > dist/.hash
 ENV NODE_ENV production
 
 ENTRYPOINT ["docker-entrypoint.sh"]
-RUN node index.js
+RUN docker-entrypoint.sh /sbin/tini -- node index.js
 CMD [ "/sbin/tini", "--", "node", "index.js"]
